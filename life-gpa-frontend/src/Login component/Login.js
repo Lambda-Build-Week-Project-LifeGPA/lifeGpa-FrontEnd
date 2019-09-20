@@ -9,7 +9,7 @@ const Login = (props) => {
         axiosWithAuth().post('https://reqres.in/api/login', credentials)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
-                console.log(res)
+                console.log('Call Successful',res)
                 props.history.push('/lifegpa')
             })
             .catch (err => {
