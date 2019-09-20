@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom' /*to be used for when we are routing th
 // imports of components
 import NavBarComponent from './Components/NavBarComponent'
 import OverallGPA from './Components/OverallGPA'
-import habitCard from './Components/habitCard'
-import buttonComponent from './Components/buttonComponent'
+import HabitCard from './Components/habitCard'
+import Buttons from './Components/buttonComponent'
 
 const Dashboard = () => {
     const [habitTracker, setHabitTracker ] = usestate( [] )
@@ -13,17 +13,19 @@ const Dashboard = () => {
         setHabitTracker( [...habitTracker, habit])}
 
     return (
-       <div>
+       <div className='dashboard'>
            <NavBarComponent />
 
             <OverallGPA />
             
-            <habitCard/>
+            <HabitCard/>
             
-            <buttonComponent />
-            <buttonComponent />
+            <Buttons />
+            <Buttons />
        </div>
         
 
     )
 }
+
+ReactDOM.render(<Dashboard />, document.getElementById('root'));
