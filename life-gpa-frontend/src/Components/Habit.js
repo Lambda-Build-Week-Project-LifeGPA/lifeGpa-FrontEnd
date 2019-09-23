@@ -4,8 +4,8 @@ import * as yup from 'yup';
 
 const Habit = (props) => {
     return (
-        <div>
-            <h1>{props.name}</h1>
+        <div key={props.key}>
+            <h3>{props.name}</h3>
             <Form >
                 <label>Completion</label>
                 <Field type="checkbox" name="completion"/>
