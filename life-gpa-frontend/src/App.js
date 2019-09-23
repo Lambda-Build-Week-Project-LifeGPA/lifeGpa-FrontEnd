@@ -12,10 +12,10 @@ function App() {
       <NavLink to={'/'}>Home</NavLink>
       <NavLink to={'/login'}>Login</NavLink>
       <NavLink to={'/signup'}>Sign Up</NavLink>
-      <header className="App-header">
+     
         <Route exact path = '/login' component = {Login} />
         <Route exact path = '/signup' component = {SignUp} />
-      </header>
+
       <HabitSelector />
       <Habit name="Brush Teeth"/>
     </div>
