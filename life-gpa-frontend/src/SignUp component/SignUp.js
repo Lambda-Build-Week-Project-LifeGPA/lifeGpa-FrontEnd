@@ -2,15 +2,15 @@ import React, { useState, } from 'react'
 import { axiosWithAuth } from '../axiosAuth'
 
 const SignUp = (props) => {
-    const [credentials, setCredentials] = useState({})
+    const [credentials, setCredentials] = useState({name :'', email : '', password : ''})
 
     const signup = e => {
         e.preventDefault();
-        axiosWithAuth().post('https://reqres.in/api/register', credentials)
+        axiosWithAuth().post('https://lifegpa-backend.herokuapp.com/users/register', credentials)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
-                console.log(res)
-                props.history.push('/lifegpa')
+                console.log('Register Call Successful',res)
+                props.history.push('/login')
             })
             .catch (err => {
                 console.log('its not working', err)
@@ -35,9 +35,9 @@ const SignUp = (props) => {
           />
           <input
             type="text"
-            name="username"
+            name="name"
             placeholder = 'Name'
-            value={credentials.username}
+            value={credentials.name}
             onChange={handleChange}
           />
           <input

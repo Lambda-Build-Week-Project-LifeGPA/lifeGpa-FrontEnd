@@ -2,14 +2,14 @@ import React, { useState, } from 'react'
 import { axiosWithAuth } from '../axiosAuth'
 
 const Login = (props) => {
-    const [credentials, setCredentials] = useState({})
+    const [credentials, setCredentials] = useState({email:'', password: ''})
 
     const login = e => {
         e.preventDefault();
-        axiosWithAuth().post('https://reqres.in/api/login', credentials)
+        axiosWithAuth().post('https://lifegpa-backend.herokuapp.com/users/login', credentials)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
-                console.log('Call Successful',res)
+                console.log('Login Call Successful',res)
                 props.history.push('/lifegpa')
             })
             .catch (err => {
@@ -29,12 +29,14 @@ const Login = (props) => {
           <input
             type="text"
             name="email"
+            placeholder = 'Email'
             value={credentials.email}
             onChange={handleChange}
           />
           <input
             type="password"
             name="password"
+            placeholder = 'Password'
             value={credentials.password}
             onChange={handleChange}
           />
