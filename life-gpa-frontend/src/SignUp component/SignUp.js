@@ -1,5 +1,6 @@
 import React, { useState, } from 'react'
 import { axiosWithAuth } from '../axiosAuth'
+import { Button, Checkbox, Form } from 'semantic-ui-react'
 
 const SignUp = (props) => {
     const [credentials, setCredentials] = useState({name :'', email : '', password : ''})
@@ -10,7 +11,7 @@ const SignUp = (props) => {
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 console.log('Register Call Successful',res)
-                props.history.push('/login')
+                props.history.push('/habits')
             })
             .catch (err => {
                 console.log('its not working', err)
@@ -24,34 +25,47 @@ const SignUp = (props) => {
     }
 
     return (
-        <div>
-        <form onSubmit={signup}>
+      <Form onSubmit = {signup} >
+        <Form.Field>
+          <label>First Name</label>
           <input
-            type="email"
-            name="email"
-            placeholder = 'Email'
-            value={credentials.email}
-            onChange={handleChange}
-          />
+                          type="text"
+                          name="name"
+                          placeholder = 'Name'
+                          value={credentials.name}
+                          onChange={handleChange}
+                        />
+        </Form.Field>
+        <Form.Field>
+          <label>Email</label>
+            <Form.Input
+                          type="text"
+                          name="email"
+                          placeholder = 'Email'
+                          value={credentials.email}
+                          onChange={handleChange}
+                          error={{ content: 'Please enter your first name', pointing: 'below' }}
+                          fluid
+                        />
+        </Form.Field>
+        <Form.Field>
+          <label>Password</label>
           <input
-            type="text"
-            name="name"
-            placeholder = 'Name'
-            value={credentials.name}
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder = 'Password'
-            value={credentials.password}
-            onChange={handleChange}
-          />
-          <button>Register</button>
-        </form>
-      </div>
+                          type="password"
+                          name="password"
+                          placeholder = 'Password'
+                          value={credentials.password}
+                          onChange={handleChange}
+                        />
+        </Form.Field>
+        <Form.Field>
+          <Checkbox label='I agree to the Terms and Conditions' />
+        </Form.Field>
+        <Button type='submit'>Submit</Button>
+      </Form>
     )
 }
 
 export default SignUp;    
-    
+
+

@@ -1,6 +1,7 @@
 import React, { useState, } from 'react'
 import { axiosWithAuth } from '../axiosAuth'
 
+
 const Login = (props) => {
     const [credentials, setCredentials] = useState({email:'', password: ''})
 
@@ -10,7 +11,7 @@ const Login = (props) => {
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 console.log('Login Call Successful',res)
-                props.history.push('/lifegpa')
+                props.history.push('/habits')
             })
             .catch (err => {
                 console.log('its not working', err)
@@ -24,8 +25,9 @@ const Login = (props) => {
     }
 
     return (
-        <div>
-        <form onSubmit={login}>
+      <form onSubmit = {login} class="ui form">
+        <div class="field">
+          <label>Email </label>
           <input
             type="text"
             name="email"
@@ -33,6 +35,9 @@ const Login = (props) => {
             value={credentials.email}
             onChange={handleChange}
           />
+        </div>
+        <div class="field">
+          <label>Password</label>
           <input
             type="password"
             name="password"
@@ -40,13 +45,13 @@ const Login = (props) => {
             value={credentials.password}
             onChange={handleChange}
           />
-          <button>Log in</button>
-        </form>
-      </div>
+        </div>
+        <button type="submit" class="ui button">Submit</button>
+    </form>
     )
 }
 
 export default Login;    
     
 
- 
+        
