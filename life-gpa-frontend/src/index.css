@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.habit-container {
+  
+  width: 85%;
+  border: 1px solid red;
+  margin: 0 auto;
+}

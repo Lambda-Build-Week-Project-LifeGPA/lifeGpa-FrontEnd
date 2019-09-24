@@ -5,9 +5,8 @@ import axios from 'axios';
 import Habit from './Habit';
 import CancelButton from './CancelButton';
 import HabitButton from './HabitButton';
-import CustomHabitSelector from './CustomHabitSelector';
 
-const HabitSelector = ({error, touched, status}) => {
+const CustomHabitSelector = ({error, touched, status}) => {
 
     const [habit, setHabit] = useState([]);
     const [button, setButton] = useState(false);
@@ -21,24 +20,15 @@ const HabitSelector = ({error, touched, status}) => {
 
     return (
         <>
-            <HabitButton stat={setButton} text="Habit"/>
-            
+            <HabitButton stat={setButton} text="Custom Habit" />
             <dialog open={button}>
                 <Form>
-                    <Field component="select" name="habits">
-                        <option value="" disabled>Select Habit</option>
-                        <option value="Brush teeth">Brush Teeth</option>
-                        <option value="Went to the gym">Went to the gym</option>
-                        <option value="Ate fruits">Ate Fruits</option>
-                        <option value="Ate vegetables">Ate Vegetables</option>
-                    </Field>
+                    <Field type="text" name="habits" placeholder="Add habit here"/>
                     <button type="submit">Add Habit</button>
-               
                 </Form>
                 <CancelButton stat={setButton} />
             </dialog>
-            <CustomHabitSelector />
-            <div>
+            <div style={{display: "flex"}}>
                 {habit.map((list, index) => (
                     <Habit 
                     name={list.habits}
@@ -56,7 +46,7 @@ export default withFormik({
         }
     },
     validationSchema: yup.object().shape({
-        habits: yup.string().required("Please select habit")
+        habits: yup.string().required("Please fill out habit")
     }),
     handleSubmit: (values, {setStatus}) => {
         axios.post("https://reqres.in/api/users", values)
@@ -67,4 +57,4 @@ export default withFormik({
                 console.log(err)
             })
     }
-})(HabitSelector)
+})(CustomHabitSelector)
