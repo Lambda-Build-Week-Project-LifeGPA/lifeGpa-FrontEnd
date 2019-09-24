@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { withFormik, Form, Field } from 'formik';
-import * as yup from 'yup';
 
 const Habit = (props) => {
     const [number, setNumber] = useState(0);
@@ -20,10 +18,6 @@ const Habit = (props) => {
     return (
         <div key={props.key}>
             <h3>{props.name}</h3>
-            {/* <Form >
-                <label>Completion</label>
-                <Field type="checkbox" name="completion"/>
-            </Form> */}
             <button onClick={completed}>Yes</button>
             <button onClick={notCompleted}>No</button>
             <button onClick={averages}>Get average</button>
@@ -33,12 +27,4 @@ const Habit = (props) => {
         </div>
     )
 }
-// export default withFormik({
-//     mapPropsToValues: (values) => {
-//         return{completion: values.completion || false}
-//     },
-//     validationSchema: yup.object().shape({
-//         completion: yup.boolean().oneOf([true])
-//     })
-// })(Habit)
 export default Habit;
