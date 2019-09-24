@@ -5,8 +5,9 @@ import axios from 'axios';
 import Habit from './Habit';
 import CancelButton from './CancelButton';
 import HabitButton from './HabitButton';
+import CustomHabitSelector from './CustomHabitSelector';
 
-const CustomHabitSelector = ({error, touched, status}) => {
+const HabitSelector = ({error, touched, status}) => {
 
     const [habit, setHabit] = useState([]);
     const [button, setButton] = useState(false);
@@ -19,23 +20,32 @@ const CustomHabitSelector = ({error, touched, status}) => {
     },[status])
 
     return (
-        <>
-            <HabitButton stat={setButton} text="Custom Habit" />
+        <div className="habit-container">
+            <HabitButton stat={setButton} text="Habit"/>
+            
             <dialog open={button}>
                 <Form>
-                    <Field type="text" name="habits" placeholder="Add habit here"/>
+                    <Field component="select" name="habits">
+                        <option value="" disabled>Select Habit</option>
+                        <option value="Brush teeth">Brush Teeth</option>
+                        <option value="Went to the gym">Went to the gym</option>
+                        <option value="Ate fruits">Ate Fruits</option>
+                        <option value="Ate vegetables">Ate Vegetables</option>
+                    </Field>
                     <button type="submit">Add Habit</button>
+               
                 </Form>
                 <CancelButton stat={setButton} />
             </dialog>
-            <div>
+            <CustomHabitSelector />
+            <div style={{display: "flex"}}>
                 {habit.map((list, index) => (
                     <Habit 
                     name={list.habits}
                     key={index}/>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 
@@ -46,7 +56,7 @@ export default withFormik({
         }
     },
     validationSchema: yup.object().shape({
-        habits: yup.string().required("Please fill out habit")
+        habits: yup.string().required("Please select habit")
     }),
     handleSubmit: (values, {setStatus}) => {
         axios.post("https://reqres.in/api/users", values)
@@ -57,4 +67,4 @@ export default withFormik({
                 console.log(err)
             })
     }
-})(CustomHabitSelector)
+})(HabitSelector)

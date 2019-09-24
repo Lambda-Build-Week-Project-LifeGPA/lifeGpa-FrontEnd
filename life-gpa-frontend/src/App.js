@@ -1,12 +1,9 @@
 
 import React, { useState } from 'react';
 import './App.css';
-import HabitSelector from './Components/HabitSelector';
-import Habit from './Components/Habit';
-import HabitButton from './Components/HabitButton';
-import CancelButton from './Components/CancelButton';
+import HabitSelector from './HabitComponents/HabitSelector';
 import styled from 'styled-components';
-import CustomHabitSelector from './Components/CustomHabitSelector';
+
 
 
 import {Route, NavLink} from 'react-router-dom'
@@ -25,8 +22,7 @@ function App() {
         <Route exact path = '/login' component = {Login} />
         <Route exact path = '/signup' component = {SignUp} />
 
-      <HabitSelector />
-      {/* <CustomHabitSelector /> */}
+        <Route exact path ='/' component = {HabitSelector} />
     </div>
   );
 }
