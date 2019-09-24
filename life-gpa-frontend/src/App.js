@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './App.css';
-import HabitSelector from './Components/HabitSelector';
+import HabitSelector from './HabitComponents/HabitSelector';
 import {Route, NavLink} from 'react-router-dom'
 import Login from './Login component/Login';
 import SignUp from './SignUp component/SignUp';
@@ -18,7 +18,6 @@ function App() {
         <Route exact path = '/login' component = {Login} />
         <Route exact path = '/signup' component = {SignUp} />
         <PrivateRoute exact path = '/habits' component = {HabitSelector}/>
-    
     </div>
   );
 }
