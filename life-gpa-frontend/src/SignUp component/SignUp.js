@@ -11,7 +11,7 @@ const SignUp = (props) => {
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 console.log('Register Call Successful',res)
-                props.history.push('/habits')
+                props.history.push('/dashboard')
             })
             .catch (err => {
                 console.log('its not working', err)
@@ -44,8 +44,8 @@ const SignUp = (props) => {
                           placeholder = 'Email'
                           value={credentials.email}
                           onChange={handleChange}
-                          error={{ content: 'Please enter your first name', pointing: 'below' }}
-                          fluid
+                        
+      
                         />
         </Form.Field>
         <Form.Field>

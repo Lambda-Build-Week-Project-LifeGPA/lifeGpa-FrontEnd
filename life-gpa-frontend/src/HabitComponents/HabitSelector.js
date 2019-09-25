@@ -33,7 +33,6 @@ const HabitSelector = ({error, touched, status}) => {
                         <option value="Ate vegetables">Ate Vegetables</option>
                     </Field>
                     <button type="submit">Add Habit</button>
-               
                 </Form>
                 <CancelButton stat={setButton} />
             </dialog>
