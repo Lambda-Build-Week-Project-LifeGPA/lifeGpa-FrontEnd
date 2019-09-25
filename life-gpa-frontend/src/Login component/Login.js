@@ -11,7 +11,7 @@ const Login = (props) => {
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 console.log('Login Call Successful',res)
-                props.history.push('/habits')
+                props.history.push('/dashboard')
             })
             .catch (err => {
                 console.log('its not working', err)
