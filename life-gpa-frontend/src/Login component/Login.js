@@ -1,7 +1,8 @@
 import React, { useState, } from 'react'
 import { axiosWithAuth } from '../axiosAuth'
-
-
+import { Button, Form, Grid, Header, Image, Message, Segment, Menu, Container } from 'semantic-ui-react'
+import Log from '../img/log.png'
+import {Link} from 'react-router-dom'
 const Login = (props) => {
     const [credentials, setCredentials] = useState({email:'', password: ''})
 
@@ -25,29 +26,61 @@ const Login = (props) => {
     }
 
     return (
-      <form onSubmit = {login} class="ui form">
-        <div class="field">
-          <label>Email </label>
-          <input
+      <div>
+         <Menu
+                size='large'
+              >
+                <Container>
+                <Button as={Link} to ='/' style = {{marginBottom:'10px', marginTop: '8px'}} >
+                  Home
+                </Button>
+              
+                  <Menu.Item position='right'>
+                    <Button as = {Link} to = '/login' >
+                      Log in
+                    </Button>
+                    <Button as={Link} to ='/signup'  style={{ marginLeft: '0.5em' }}>
+                      Sign Up
+                    </Button>
+                  </Menu.Item>
+                </Container>
+              </Menu>
+
+
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as='h2' color='teal' textAlign='center'>
+          <Image src={Log} /> Log-in to your account
+        </Header>
+        <Form onSubmit = {login} size='large'>
+          <Segment stacked>
+            <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address'
             type="text"
             name="email"
-            placeholder = 'Email'
             value={credentials.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div class="field">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder = 'Password'
-            value={credentials.password}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit" class="ui button">Submit</button>
-    </form>
+            onChange={handleChange} />
+            <Form.Input
+              fluid
+              icon='lock'
+              iconPosition='left'
+              placeholder='Password'
+              type='password'
+              name="password"
+              value={credentials.password}
+              onChange={handleChange}
+            />
+  
+            <Button color='' fluid size='large'>
+              Login
+            </Button>
+          </Segment>
+        </Form>
+        <Message>
+          New to us? <a href='/signup'>Sign Up</a>
+        </Message>
+      </Grid.Column>
+    </Grid>      
+    </div>
     )
 }
 
