@@ -31,3 +31,9 @@
     transform: rotate(360deg);
   }
 }
+a {
+  margin: 1%;
+}
+div .column {
+  max-width: 800px;
+}
