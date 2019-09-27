@@ -4,6 +4,7 @@ import axios from 'axios'
 
 const Habits = (props) => {
  const [habits, sethabits] = useState([])
+
  const [value, setValue] = useState({
     crd : {
         name: '',
@@ -18,6 +19,7 @@ const Habits = (props) => {
     //         sethabits(res.data)
     //     })
     // }, [])
+    
    const handleChange = e => {
        setValue(
            {
