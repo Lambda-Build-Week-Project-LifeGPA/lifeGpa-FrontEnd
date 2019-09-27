@@ -2,9 +2,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import HabitSelector from './HabitComponents/HabitSelector';
-import styled from 'styled-components';
-
-
 
 import {Route, NavLink} from 'react-router-dom'
 import Login from './Login component/Login';

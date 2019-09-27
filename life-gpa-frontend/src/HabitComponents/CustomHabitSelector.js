@@ -49,7 +49,7 @@ export default withFormik({
         habits: yup.string().required("Please fill out habit")
     }),
     handleSubmit: (values, {setStatus}) => {
-        axios.post("https://reqres.in/api/users", values)
+        axios.post("/habits/new", values)
             .then((res) => {
                 console.log(res)
                 setStatus(res.data)

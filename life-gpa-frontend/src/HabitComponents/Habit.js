@@ -7,9 +7,11 @@ const Habit = (props) => {
     const completed = () => {
         setNumber(number + 1)
         setCount(count + 1)
+        return true
     }
     const notCompleted = () => {
         setCount(count + 1)
+        return false
     }
 
     const averages = () => {
@@ -21,9 +23,9 @@ const Habit = (props) => {
             <button onClick={completed}>Yes</button>
             <button onClick={notCompleted}>No</button>
             <button onClick={averages}>Get average</button>
-            <h1>Completions: {number}</h1>
-            <h1>Days:{count}</h1>
-            <h1>Score: {average}</h1>
+            <h3>Completions: {number}</h3>
+            <h3>Days:{count}</h3>
+            <h3>Score: {average}</h3>
         </div>
     )
 }
