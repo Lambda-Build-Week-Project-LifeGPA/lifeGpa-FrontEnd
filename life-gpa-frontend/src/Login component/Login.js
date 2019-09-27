@@ -27,14 +27,11 @@ const Login = (props) => {
 
     return (
       <div>
-         <Menu
-                size='large'
-              >
+              <Menu size='large'>
                 <Container>
-                <Button as={Link} to ='/' style = {{marginBottom:'10px', marginTop: '8px'}} >
-                  Home
-                </Button>
-              
+                  <Button as={Link} to ='/' style = {{marginBottom:'10px', marginTop: '8px'}} >
+                    Home
+                  </Button>
                   <Menu.Item position='right'>
                     <Button as = {Link} to = '/login' >
                       Log in
@@ -49,7 +46,7 @@ const Login = (props) => {
 
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='teal' textAlign='center'>
+        <Header as='h2' color='black' textAlign='center'>
           <Image src={Log} /> Log-in to your account
         </Header>
         <Form onSubmit = {login} size='large'>
@@ -70,13 +67,13 @@ const Login = (props) => {
               onChange={handleChange}
             />
   
-            <Button color='' fluid size='large'>
+            <Button color='black' fluid size='large'>
               Login
             </Button>
           </Segment>
         </Form>
-        <Message>
-          New to us? <a href='/signup'>Sign Up</a>
+        <Message color = 'teal'>
+          New to us? <a href='/signup' >Sign Up</a>
         </Message>
       </Grid.Column>
     </Grid>      
