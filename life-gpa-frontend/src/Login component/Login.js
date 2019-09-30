@@ -4,6 +4,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment, Menu, Container } 
 import Log from '../img/log.png'
 import {Link} from 'react-router-dom'
 const Login = (props) => {
+
     const [credentials, setCredentials] = useState({email:'', password: ''})
 
     const login = e => {
@@ -18,6 +19,7 @@ const Login = (props) => {
                 console.log('its not working', err)
             })
     }
+    
     const handleChange = e => {
         setCredentials({
             ...credentials,
@@ -25,6 +27,10 @@ const Login = (props) => {
         })
     }
 
+    const sayHello = e => {
+      alert('Hello User!')
+    }
+    
     return (
       <div>
               <Menu size='large'>
@@ -36,7 +42,7 @@ const Login = (props) => {
                     <Button as = {Link} to = '/login' >
                       Log in
                     </Button>
-                    <Button as={Link} to ='/signup'  style={{ marginLeft: '0.5em' }}>
+                    <Button as={Link} to ='/signup'  style={{ marginLeft: '0.5em' }} onClick = {sayHello}>
                       Sign Up
                     </Button>
                   </Menu.Item>
