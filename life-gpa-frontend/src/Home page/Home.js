@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import {
   Button,
   Container,
-  Divider,
   Grid,
   Header,
   Icon,
@@ -17,6 +16,7 @@ import {
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import life from '../img/life.jpg'
+
 
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
@@ -211,7 +211,12 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 }
 
+const sayHello = e => {
+  alert('Please Sign up First')
+}
+
 const HomepageLayout = () => (
+  
   <ResponsiveContainer>
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
@@ -236,7 +241,7 @@ const HomepageLayout = () => (
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign='center'>
-            <Button size='huge'>Check Us Out</Button>
+            <Button size='huge' onClick = {sayHello}>Check Us Out</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
