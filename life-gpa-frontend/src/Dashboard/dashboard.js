@@ -17,7 +17,11 @@ const Dashboard = () => {
        <div className='dashboard'>
 
          <HabitSelector />
+<<<<<<< HEAD
+            {/* <Habits/> */}
+=======
          <Habits/>
+>>>>>>> 6e0706ad7a1f3bd441e1185dc31313848e6cc2fe
             
            
        </div>
