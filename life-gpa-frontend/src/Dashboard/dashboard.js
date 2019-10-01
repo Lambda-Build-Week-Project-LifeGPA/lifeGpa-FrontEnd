@@ -6,27 +6,26 @@ import React, { useState } from 'react'
 
 // import { Route } from 'react-router-dom' /*to be used for when we are routing the different pages to the dashboard */
 // imports of components
-import NavBarComponent from './Components/NavBarComponent'
-import OverallGPA from './Components/OverallGPA'
-import HabitCard from './Components/habitCard'
-import Buttons from './Components/buttonComponent'
+import HabitSelector from '../HabitComponents/HabitSelector'
+import Habits from './Components/habitCard'
 
 
 const Dashboard = () => {
-    const [habitTracker, setHabitTracker ] = useState( [] )
-    const addToHabitTracker = habit => {
-        setHabitTracker( [...habitTracker, habit])}
+
+    const [habitTracker, setHabitTracker ] = useState( {
+        habit: {
+            name : 'Ride bike'
+        }
+    } )
+    
 
     return (
        <div className='dashboard'>
-           <NavBarComponent />
 
-            <OverallGPA />
+         <HabitSelector />
+            {/* <Habits/> */}
             
-            <HabitCard/>
-            
-            <Buttons />
-            <Buttons />
+           
        </div>
         
 

@@ -12,6 +12,12 @@ code {
     monospace;
 }
 .habit-container {
-  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.habits {
+  width: 80%;
   margin: 0 auto;
 }
