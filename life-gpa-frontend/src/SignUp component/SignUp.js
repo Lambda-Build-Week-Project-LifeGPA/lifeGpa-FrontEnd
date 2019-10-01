@@ -44,7 +44,7 @@ const SignUp = (props) => {
             </Menu>
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
               <Grid.Column style={{ maxWidth: 450 }}>
-                <Header as='h2' color='teal' textAlign='center'>
+                <Header as='h2' color='black' textAlign='center'>
                   <Image src={Log} /> Sign Up for New Account
                 </Header>
                 <Form onSubmit = {signup} size='large'>
@@ -70,7 +70,7 @@ const SignUp = (props) => {
                       onChange={handleChange}
                     />
           
-                    <Button color='teal' fluid size='large'>
+                    <Button color='black' fluid size='large'>
                       Register
                     </Button>
                   </Segment>

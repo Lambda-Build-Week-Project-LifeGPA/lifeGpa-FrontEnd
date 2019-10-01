@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import {
   Button,
   Container,
-  Divider,
   Grid,
   Header,
   Icon,
@@ -17,6 +16,7 @@ import {
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import life from '../img/life.jpg'
+
 
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
@@ -211,25 +211,28 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 }
 
+const sayHello = e => {
+  alert('Please Sign up First')
+}
+
 const HomepageLayout = () => (
+  
   <ResponsiveContainer>
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Help Companies and Companions
+              We want to help you Ace your life. 
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              We can give your company superpowers to do things that they never thought possible.
-              Let us delight your customers and empower your needs... through pure data analytics.
+              We can track your selected habits and give you back the 30 and 60 averages based on your completion.
             </p>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Make Bananas That Can Dance
+              We are also free to use
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-              bioengineered.
+              Yes that's right, you thought it was the stuff of dreams!
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
@@ -238,7 +241,7 @@ const HomepageLayout = () => (
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign='center'>
-            <Button size='huge'>Check Them Out</Button>
+            <Button size='huge' onClick = {sayHello}>Check Us Out</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -253,25 +256,21 @@ const HomepageLayout = () => (
               <List link inverted>
                 <List.Item as='a'>Sitemap</List.Item>
                 <List.Item as='a'>Contact Us</List.Item>
-                <List.Item as='a'>Religious Ceremonies</List.Item>
-                <List.Item as='a'>Gazebo Plans</List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={3}>
               <Header inverted as='h4' content='Services' />
               <List link inverted>
-                <List.Item as='a'>Banana Pre-Order</List.Item>
-                <List.Item as='a'>DNA FAQ</List.Item>
-                <List.Item as='a'>How To Access</List.Item>
-                <List.Item as='a'>Favorite X-Men</List.Item>
+                <List.Item as='a'>LifeG GPA calculator</List.Item>
+                <List.Item as='a'>Monthly Reports</List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={7}>
               <Header as='h4' inverted>
-                Footer Header
+               Simple life solution
               </Header>
               <p>
-                Extra space for a call to action inside the footer that could help re-engage users.
+              You better start tracking your habits, even the bad ones too!
               </p>
             </Grid.Column>
           </Grid.Row>

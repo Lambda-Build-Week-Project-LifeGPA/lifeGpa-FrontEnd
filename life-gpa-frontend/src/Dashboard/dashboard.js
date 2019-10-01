@@ -12,18 +12,16 @@ import Habits from './Components/habitCard'
 
 const Dashboard = () => {
 
-    const [habitTracker, setHabitTracker ] = useState( {
-        habit: {
-            name : 'Ride bike'
-        }
-    } )
-    
 
     return (
        <div className='dashboard'>
 
          <HabitSelector />
+<<<<<<< HEAD
             {/* <Habits/> */}
+=======
+         <Habits/>
+>>>>>>> 6e0706ad7a1f3bd441e1185dc31313848e6cc2fe
             
            
        </div>

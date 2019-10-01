@@ -6,6 +6,8 @@ import CancelButton from './CancelButton';
 import HabitButton from './HabitButton';
 import Habits from '../Dashboard/Components/habitCard';
 import Habit from '../HabitComponents/Habit'
+import styled from 'styled-components';
+
 
 
 const CustomHabitSelector = ({error, touched, status}) => {

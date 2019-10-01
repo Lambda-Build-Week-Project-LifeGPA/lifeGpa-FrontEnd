@@ -4,6 +4,7 @@ import { Button, Form, Grid, Header, Image, Message, Segment, Menu, Container } 
 import Log from '../img/log.png'
 import {Link} from 'react-router-dom'
 const Login = (props) => {
+
     const [credentials, setCredentials] = useState({email:'', password: ''})
 
     const login = e => {
@@ -18,6 +19,7 @@ const Login = (props) => {
                 console.log('its not working', err)
             })
     }
+    
     const handleChange = e => {
         setCredentials({
             ...credentials,
@@ -25,21 +27,22 @@ const Login = (props) => {
         })
     }
 
+    const sayHello = e => {
+      alert('Hello User!')
+    }
+    
     return (
       <div>
-         <Menu
-                size='large'
-              >
+              <Menu size='large'>
                 <Container>
-                <Button as={Link} to ='/' style = {{marginBottom:'10px', marginTop: '8px'}} >
-                  Home
-                </Button>
-              
+                  <Button as={Link} to ='/' style = {{marginBottom:'10px', marginTop: '8px'}} >
+                    Home
+                  </Button>
                   <Menu.Item position='right'>
                     <Button as = {Link} to = '/login' >
                       Log in
                     </Button>
-                    <Button as={Link} to ='/signup'  style={{ marginLeft: '0.5em' }}>
+                    <Button as={Link} to ='/signup'  style={{ marginLeft: '0.5em' }} onClick = {sayHello}>
                       Sign Up
                     </Button>
                   </Menu.Item>
@@ -49,7 +52,7 @@ const Login = (props) => {
 
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='teal' textAlign='center'>
+        <Header as='h2' color='black' textAlign='center'>
           <Image src={Log} /> Log-in to your account
         </Header>
         <Form onSubmit = {login} size='large'>
@@ -70,13 +73,13 @@ const Login = (props) => {
               onChange={handleChange}
             />
   
-            <Button color='' fluid size='large'>
+            <Button color='black' fluid size='large'>
               Login
             </Button>
           </Segment>
         </Form>
-        <Message>
-          New to us? <a href='/signup'>Sign Up</a>
+        <Message color = 'teal'>
+          New to us? <a href='/signup' >Sign Up</a>
         </Message>
       </Grid.Column>
     </Grid>      

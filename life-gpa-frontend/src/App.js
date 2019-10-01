@@ -2,6 +2,10 @@
 import React from 'react';
 import './App.css';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6e0706ad7a1f3bd441e1185dc31313848e6cc2fe
 import {Route, NavLink} from 'react-router-dom'
 import Login from './Login component/Login';
 import SignUp from './SignUp component/SignUp';
